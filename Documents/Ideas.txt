@@ -1,0 +1,41 @@
+NLP import for lemmatisation of words
+Integration testing
+
+Backend Endpoint Creation: You set up an Express.js server with a POST endpoint /compiler that correctly handles JSON requests and responds with processed data.
+
+Request Handling: You ensured that the server receives and logs the input data sent from the frontend. This was validated by console outputs on the server side when data was received.
+
+Frontend Form Submission: You implemented a React form that captures user input and sends it to the backend using fetch wrapped in an async function. You verified that the form submission triggers the expected network request.
+
+Response Handling: You confirmed that the frontend successfully receives and displays the response from the backend after processing the input, which was indicated by the output being shown on the web page.
+
+Error Handling: Initial error handling was tested to ensure that frontend displays an error message when the backend cannot process the request or returns an error.
+
+Integration Implementation
+One of the checkmarks for this project is the maven project will be built using the command mvn clean package
+
+ const { code } = req.body;
+    console.log(code);
+    const result = processCode(code);
+    res.json({ message: `Code is here: ${result}` });
+
+Backend Adjustments:
+Ensured Node.js server was set up to handle POST requests to /compiler.
+Used child_process to spawn a Java process to run the compiler JAR file.
+Adjusted the path to the JAR file to ensure it's correctly referenced.
+Handled Java process stdout and stderr to capture the compiler's output and errors.
+Implemented response formatting to ensure proper newline characters for the frontend display.
+Added appropriate error handling and response status codes.
+
+Frontend Adjustments:
+Set up React component to capture user input and send it to the backend.
+Used axios for making HTTP POST requests from the React frontend to the Node.js backend.
+Adjusted state management in React to handle form submission, output display, and error messages.
+Modified JSX to use the <pre> tag for preserving whitespace and line breaks in the output.
+Ensured correct URL and headers for the POST request to match the backend endpoint.
+
+Integration Steps:
+Confirmed CORS settings to allow cross-origin requests between frontend and backend.
+Implemented logging in both frontend and backend to debug and verify data flow.
+Ensured backend sends formatted output and frontend correctly parses and displays it.
+Verified the correct handling of edge cases and errors in both frontend and backend.
