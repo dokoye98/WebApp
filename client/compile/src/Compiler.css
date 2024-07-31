@@ -1,0 +1,11 @@
+.text-area {
+    width: 80%;
+    height: 20vh;
+    resize: none;
+    font-size: 40px;
+}
+
+.info-text {
+    margin-top: 20px;
+    font-size: 18px;
+}

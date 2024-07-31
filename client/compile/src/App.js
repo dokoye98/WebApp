@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Compiler from './Compiler';
 import Home from './Home';
 import Gloss from './Glossary';
+import OutputPage from './OutputPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Routes>
                 <Route path="/compiler" element={<Compiler />} />
                 <Route path="/glossary" element={<Gloss />} />
+                <Route path="/output/:id" element={<OutputPage />} />
                 <Route path="/" element={<Home />} />
             </Routes>
         </div>

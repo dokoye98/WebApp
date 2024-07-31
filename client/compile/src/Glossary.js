@@ -5,10 +5,9 @@ const operations = [
     { operation: "Variable Assignment", syntax: "a = 'some'" },
     { operation: "Print Literal", syntax: "print 'hello'" },
     { operation: "Print Variable", syntax: "a = \"hello\"; print a" },
-    { operation: "Addition", syntax: "2 + 2" },
-    { operation: "Subtraction", syntax: "5 - 3" },
-    { operation: "Multiplication", syntax: "5 * 5" },
-    { operation: "Division", syntax: "25 / 5" },
+    { operation: "Simple binary", syntax: "eg-2 + 2" },
+    { operation: "Assign binary", syntax: "variable = number; variable (+/-*) number" },
+    { operation: "variable binary", syntax: "var1 = number; var2 = number; total = var1 (+/-*) var2; print total" },
     
 ];
 

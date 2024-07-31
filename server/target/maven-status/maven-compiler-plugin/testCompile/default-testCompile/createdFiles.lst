@@ -1,3 +1,7 @@
 LexerTest\TokenTest.class
-StringFunctions\StringFunctionsTests.class
+LexerTest\BinaryTest.class
+TACTest\TACGenTest.class
+InstructionTest\InstructionsTest.class
+SemanticTests\SemanticTreeTest.class
 SyntaxTest\ParserTest.class
+LexerTest\LineCheckTest.class
