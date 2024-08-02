@@ -1,9 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Compiler from './Compiler';
-import Home from './Home';
-import Gloss from './Glossary';
-import OutputPage from './OutputPage';
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import Compiler from './Compiler'
+import Home from './Home'
+import Gloss from './Glossary'
+import OutputPage from './OutputPage'
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
             </Routes>
         </div>
     </Router>
-  );
+  )
 } 
 
 export default App;

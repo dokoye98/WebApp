@@ -9,7 +9,7 @@ const operations = [
     { operation: "Assign binary", syntax: "variable = number; variable (+/-*) number" },
     { operation: "variable binary", syntax: "var1 = number; var2 = number; total = var1 (+/-*) var2; print total" },
     
-];
+]
 
 function Glossary() {
     return (
@@ -28,7 +28,7 @@ function Glossary() {
                 ))}
             </div>
         </div>
-    );
+    )
 }
 
 export default Glossary;
