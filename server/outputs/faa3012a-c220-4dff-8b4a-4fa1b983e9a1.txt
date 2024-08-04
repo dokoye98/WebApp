@@ -1,17 +1,30 @@
 Ready to receive input:
 Token{key=PRINT, value='print'}
 Token{key=LITERAL, value='hello world'}
-AST after optimization: PrintStatement : void
+Starting parse process with tokens:
+PrintStatement : void
   |
   +-- Literal("hello world") : String
+Analyzing semantics for AST: PrintStatementNode
+PrintStatementNode: Literal("hello world") : String
+Checking expression: Literal("hello world") : String
+Expression is a LiteralNode
 t0 = "hello world"
 call print, t0
 LOAD R0, "hello world"
 CALL print, R0
 hello world
-Registers
+Registers: 
+R4 = 0
+R6 = 0
+R3 = 0
 R0 = hello world
-Variables:
+R5 = 0
+R1 = 0
+R2 = 0
+Variables: 
+Memory: 
+
 Assembly Code here:
 
 section .data

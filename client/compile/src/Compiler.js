@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
-import './Compiler.css' 
+import './Compiler.css'
 
 function Compiler() {
     const [msg, setMsg] = useState('')
@@ -12,11 +12,10 @@ function Compiler() {
     useEffect(() => {
         const fetchCompiledIds = async () => {
             try {
-                
-                const response = await axios.get("http://localhost:3001/compiler/compiled-ids")
+                const response = await axios.get('http://localhost:3001/compiler/compiled-ids')
                 setCompiledIds(response.data.compiledIds)
             } catch (error) {
-                console.error("Error fetching compiled IDs:", error)
+                console.error('Error fetching compiled IDs:', error)
             }
         }
 
@@ -27,10 +26,19 @@ function Compiler() {
         e.preventDefault()
         setError('')
         try {
-            const response = await axios.post("http://localhost:3001/compiler/compile", { input: msg })
+            const response = await axios.post('http://localhost:3001/compiler/compile', { input: msg })
             navigate(`/output/${response.data.outputId}`)
         } catch (error) {
             setError('Failed to compile. Please try again.')
+        }
+    }
+
+    const clearCompiledIds = async () => {
+        try {
+            await axios.post('http://localhost:3001/compiler/clear-compiled-ids')
+            setCompiledIds([])
+        } catch (error) {
+            console.error('Error clearing compiled IDs:', error)
         }
     }
 
@@ -38,15 +46,15 @@ function Compiler() {
         <div className='cont' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <form onSubmit={submit} style={{ width: '100%' }}>
                 <textarea 
-                    name="text" 
+                    name='text' 
                     onChange={(e) => setMsg(e.target.value)} 
                     placeholder='code here'
-                    className="text-area"
+                    className='text-area'
                 ></textarea>
-                <input type='submit' value="Submit" />
+                <input type='submit' value='Submit' />
                 {error && <div style={{ color: 'red' }}>{error}</div>}
                 
-                <p className="info-text">Copy generated assembly code<br/>
+                <p className='info-text'>Copy generated assembly code<br/>
                 sudo apt update <br/>
                 sudo apt install nasm <br/>
                 nano (fileName).asm<br/>
@@ -58,6 +66,7 @@ function Compiler() {
             </form>
             <div>
                 <h2>Recently Compiled Results:</h2>
+                <button onClick={clearCompiledIds}>Clear Compiled IDs</button>
                 <ul>
                     {compiledIds.map(id => (
                         <li key={id}>
