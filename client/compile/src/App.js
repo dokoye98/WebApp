@@ -1,21 +1,15 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Compiler from './Compiler'
 import Home from './Home'
 import Gloss from './Glossary'
 import OutputPage from './OutputPage'
-
+import NavBar from './NavBar'
 function App() {
   return (
     <Router>
         <div>
-            <nav>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/compiler">Compiler</Link></li>
-                    <li><Link to="/glossary">Glossary</Link></li>
-                </ul>
-            </nav>
+            <NavBar/>
             <Routes>
                 <Route path="/compiler" element={<Compiler />} />
                 <Route path="/glossary" element={<Gloss />} />

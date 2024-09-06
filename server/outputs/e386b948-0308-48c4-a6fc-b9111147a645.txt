@@ -1,34 +1,42 @@
 Ready to receive input:
-Token{key=PRINT, value='print'}
-Token{key=LITERAL, value='hello world'}
+Token{ key=PRINT, value='print }
+Token{ key=LITERAL, value='jello }
 Starting parse process with tokens:
 PrintStatement : void
   |
-  +-- Literal("hello world") : String
+  +-- Literal("jello") : String
 Analyzing semantics for AST: PrintStatementNode
-PrintStatementNode: Literal("hello world") : String
-Checking expression: Literal("hello world") : String
+PrintStatementNode: Literal("jello") : String
+Checking expression: Literal("jello") : String
 Expression is a LiteralNode
-t0 = "hello world"
+t0 = "jello"
 call print, t0
-LOAD R0, "hello world"
+LOAD R0, "jello"
 CALL print, R0
-hello world
+jello
 Registers: 
-R4 = 0
-R6 = 0
-R3 = 0
-R0 = hello world
-R5 = 0
+R10 = 0
 R1 = 0
 R2 = 0
+R0 = jello
+R6 = 0
+R3 = 0
+R5 = 0
+R8 = 0
+R11 = 0
+R12 = 0
+R7 = 0
+R13 = 0
+R4 = 0
+R9 = 0
+R_TOTAL = 0
 Variables: 
 Memory: 
 
 Assembly Code here:
 
 section .data
-message db  'hello world', 0;
+message db  'jello', 0;
 
 section .bss
 ;

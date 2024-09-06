@@ -2,12 +2,16 @@ import React from 'react';
 import './Glossary.css';
 
 const operations = [
-    { operation: "Variable Assignment", syntax: "a = 'some'" },
+    { operation: "Variable Assignment", syntax: "String a = 'some'" },
     { operation: "Print Literal", syntax: "print 'hello'" },
-    { operation: "Print Variable", syntax: "a = \"hello\"; print a" },
+    { operation: "Print Variable", syntax: "String a = \"hello\"; print a" },
     { operation: "Simple binary", syntax: "eg-2 + 2" },
-    { operation: "Assign binary", syntax: "variable = number; variable (+/-*) number" },
-    { operation: "variable binary", syntax: "var1 = number; var2 = number; total = var1 (+/-*) var2; print total" },
+    { operation: "Assign binary", syntax: "int variable = number; variable (+/-*) number" },
+    { operation: "variable binary", syntax: "int var1 = number; int var2 = number;int  total = var1 (+/-*) var2; print total" },
+    { operation: "Array assign", syntax: "array = [value,value]" },
+    { operation: "binary array assign", syntax: "a = [value,value];int  b = a[i];int c =a[i]; int d = b (+/-*) c; print d " },
+    { operation: "For loop", syntax: "array = [value,value]; for variable in array; print variable" },
+
     
 ]
 

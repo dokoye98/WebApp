@@ -17,6 +17,7 @@ if (!fs.existsSync(idsFilePath)) {
     fs.writeFileSync(idsFilePath, JSON.stringify([]))
 }
 
+
 router.post('/compile', (req, res) => {
     const { input } = req.body
     console.log('Received code:', input)
@@ -29,12 +30,12 @@ router.post('/compile', (req, res) => {
     compiler.stdout.on('data', (data) => {
         output += data.toString()
         console.log(data.toString())
-    });
+    })
 
     compiler.stderr.on('data', (data) => {
         console.error('Compilation Error:', data.toString())
         res.status(500).json({ error: 'Invalid code' })
-    });
+    })
 
     compiler.on('close', (code) => {
         if (code !== 0) {
@@ -44,10 +45,8 @@ router.post('/compile', (req, res) => {
             const formattedOutput = output.replace(/;\s/, ';\n')
             const outputId = uuid.v4();
             const outputFilePath = path.join(outputDir, `${outputId}.txt`)
+            fs.writeFileSync(outputFilePath, formattedOutput)
 
-            fs.writeFileSync(outputFilePath, formattedOutput);
-
-            
             let compiledIds = JSON.parse(fs.readFileSync(idsFilePath));
             compiledIds.unshift(outputId);
             if (compiledIds.length > 5) compiledIds = compiledIds.slice(0, 5)
@@ -59,7 +58,7 @@ router.post('/compile', (req, res) => {
 
     compiler.stdin.write(stringCode + '\nexit\n')
     compiler.stdin.end()
-});
+})
 
 router.get('/output/:id', (req, res) => {
     const outputId = req.params.id
@@ -75,6 +74,7 @@ router.get('/output/:id', (req, res) => {
 router.get('/compiled-ids', (req, res) => {
     try {
         const compiledIds = JSON.parse(fs.readFileSync(idsFilePath))
+        console.log({Result:compiledIds})
         res.json({ compiledIds })
     } catch (error) {
         console.error("Error reading compiled IDs:", error)
@@ -89,3 +89,5 @@ router.post('/clear-compiled-ids', (req, res) => {
 
 
 module.exports = router;
+
+

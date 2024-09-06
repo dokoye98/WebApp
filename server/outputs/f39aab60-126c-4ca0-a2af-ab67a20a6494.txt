@@ -1,0 +1,95 @@
+Ready to receive input:
+Token{ key=NUM_VAR, value='a }
+Token{ key=VAR_ASSIGN, value='= }
+Token{ key=LITERAL, value='12 }
+Token{ key=VAR_ADD, value='a }
+Token{ key=ADDITION, value='+ }
+Token{ key=LITERAL, value='10 }
+Starting parse process with tokens:
+VariableAssignment : void
+  |
+  +-- Variable(a)
+  +-- Literal("12") : String
+AddVariableNode(+): Integer
+  |
+  +-- Variable(a)
+  +-- Literal("12") : String
+  +-- Literal("10") : String
+Analyzing semantics for AST: AddVariableNode
+BinaryAssignmentNode: Literal("12") : String, Literal("10") : String
+Checking expression: Literal("12") : String
+Expression is a LiteralNode
+Checking expression: Literal("10") : String
+Expression is a LiteralNode
+Analyzing semantics for AST: VariableAssignmentNode
+VariableAssignmentNode: a, Literal("12") : String
+Checking expression: Literal("12") : String
+Expression is a LiteralNode
+a = 1100 (12)
+t0 = a
+t1 = 1010 (10)
+t2 = t0 + t1
+LOAD R0, "1100"
+STORE a , R0
+LOAD R1, "1010"
+ADD R2, R0 , R1
+MOV a, R2
+CALL print, R2
+10110
+Registers: 
+R_TOTAL = 0
+R0 = 1100
+R5 = 0
+R10 = 0
+R3 = 0
+R12 = 0
+R7 = 0
+R11 = 0
+R4 = 0
+R6 = 0
+R13 = 0
+R9 = 0
+R8 = 0
+R2 = 10110
+R1 = 1010
+Variables: 
+a = 10110
+Memory: 
+
+Assembly Code here:
+
+section .data
+result dd 0
+buffer db 'Result: ', 0
+buffer_len equ $ - buffer
+num_str db '0000000000', 0
+num_len equ 10
+a dd 12
+section .text
+global _start
+_start:
+    mov eax, [a]
+    add eax, 10
+    mov [result], eax
+    mov ecx, num_len
+    mov esi, result
+    mov eax, [esi]
+    mov ebx, 10
+convert_loop:
+    xor edx, edx
+    div ebx
+    add dl, '0'
+    dec ecx
+    mov [num_str + ecx], dl
+    test eax, eax
+    jnz convert_loop
+    mov eax, 4
+    mov ebx, 1
+    mov edx, num_len
+    mov ecx, num_str
+    int 0x80
+    mov eax, 1
+    xor ebx, ebx
+    int 0x80
+
+Finished processing input.

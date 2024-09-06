@@ -1,11 +1,66 @@
+.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    width: 100%;
+}
+
 .text-area {
     width: 80%;
-    height: 20vh;
-    resize: none;
-    font-size: 40px;
+    padding: 10px;
+    font-family: monospace;
+    margin-bottom: 10px;
+}
+
+input[type='submit'] {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type='submit']:hover {
+    background-color: #555;
 }
 
 .info-text {
-    margin-top: 20px;
-    font-size: 18px;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+h2 {
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
 }
