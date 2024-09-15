@@ -88,4 +88,5 @@ project\compiler\syntaxfunctions\StringChecker.class
 project\vm\codegen\StoreHeapInstruction.class
 project\compiler\nodes\UnknownNode.class
 project\vm\codegen\LoopEndInstruction.class
+project\compiler\assemblyInstructions\LoopAssemblyGenerator.class
 project\vm\codegen\MulInstruction.class

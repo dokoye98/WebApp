@@ -27,6 +27,7 @@ C:\Users\dwayn\IdeaProjects\Final_Compiler\src\main\java\project\compiler\nodes\
 C:\Users\dwayn\IdeaProjects\Final_Compiler\src\main\java\project\vm\codegen\LoadHeapInstruction.java
 C:\Users\dwayn\IdeaProjects\Final_Compiler\src\main\java\project\compiler\assemblyInstructions\PrintVariableSetUp.java
 C:\Users\dwayn\IdeaProjects\Final_Compiler\src\main\java\project\compiler\nodes\extendedVarBinary\SubVarExtended.java
+C:\Users\dwayn\IdeaProjects\Final_Compiler\src\main\java\project\compiler\assemblyInstructions\LoopAssemblyGenerator.java
 C:\Users\dwayn\IdeaProjects\Final_Compiler\src\main\java\project\compiler\intercode\TACVisual.java
 C:\Users\dwayn\IdeaProjects\Final_Compiler\src\main\java\project\compiler\nodes\NumericNode.java
 C:\Users\dwayn\IdeaProjects\Final_Compiler\src\main\java\project\compiler\assemblyInstructions\PrintBinarySetUp.java
