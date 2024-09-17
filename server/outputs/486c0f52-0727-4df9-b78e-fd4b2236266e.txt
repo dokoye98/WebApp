@@ -1,0 +1,64 @@
+Ready to receive input:
+Token{ key=PRINT, value='print }
+Token{ key=LITERAL, value='I hope you're enjoying my portfolio }
+Starting parse process with tokens:
+PrintStatement : void
+  |
+  +-- Literal("I hope you're enjoying my portfolio") : String
+Analyzing semantics for AST: PrintStatementNode
+PrintStatementNode: Literal("I hope you're enjoying my portfolio") : String
+Checking expression: Literal("I hope you're enjoying my portfolio") : String
+Expression is a LiteralNode
+t0 = "I hope you're enjoying my portfolio"
+call print, t0
+LOAD R0, "I hope you're enjoying my portfolio"
+CALL print, R0
+I hope you're enjoying my portfolio
+Registers: 
+R10 = 0
+R1 = 0
+R2 = 0
+R0 = I hope you're enjoying my portfolio
+R6 = 0
+R3 = 0
+R5 = 0
+R8 = 0
+R11 = 0
+R12 = 0
+R7 = 0
+R13 = 0
+R4 = 0
+R9 = 0
+R_TOTAL = 0
+Variables: 
+Memory: 
+
+Assembly Code here:
+
+section .data
+message db  'I hope you're enjoying my portfolio', 0;
+
+section .bss
+;
+
+section .text
+global _start            ;
+_start
+_start:
+    mov eax, message
+    push eax
+    call print
+    add esp, 4
+    mov eax, 1          ; exit call
+    xor ebx, ebx        ; exit code 0
+    int 0x80            ;  system call
+print:
+    mov edx, len        ; dynamic string len
+    mov ecx, [esp+4]    ; 
+    mov ebx, 1          ; File descriptor (stdout)
+    mov eax, 4          ;  call number -> sys_write
+    int 0x80            ; system call
+    ret                 ; Return from the function
+section .data
+len equ $ - message     ;length is automatically calculated
+Finished processing input.
