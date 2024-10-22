@@ -13,7 +13,7 @@ function Compiler() {
         const fetchCompiledIds = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001'
-                const response = await axios.get(`${apiUrl}/compiler/compiled-ids`)
+                const response = await axios.get(`http://localhost:5000/compiled-ids`)
                 setCompiledIds(response.data.compiledIds)
             } catch (error) {
                 console.error('Error fetching compiled IDs:', error)
@@ -27,7 +27,7 @@ function Compiler() {
         setError('')
         try {
             const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001'
-            const response = await axios.post(`${apiUrl}/compiler/compile`, { input: msg })
+            const response = await axios.post(`http://localhost:500'/compiler/compile`, { input: msg })
             navigate(`/output/${response.data.outputId}`)
         } catch (error) {
             setError('Failed to compile. Please try again.')
@@ -36,8 +36,8 @@ function Compiler() {
 
     const clearCompiledIds = async () => {
         try {
-            const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001'
-            await axios.post(`${apiUrl}/compiler/clear-compiled-ids`)
+            
+            await axios.post(`http://localhost:5000/compiler/clear-compiled-ids`)
             setCompiledIds([])
         } catch (error) {
             console.error('Failed to clear compiled IDs:', error)

@@ -6,7 +6,6 @@ project\vm\codegen\JumpInstruction.class
 project\compiler\nodes\BinaryAssignNode.class
 project\compiler\assemblyInstructions\PrintSetUp.class
 project\compiler\nodes\Node.class
-project\nasmCompiler\NasmRunner.class
 project\compiler\nodes\BinaryOperationNode.class
 project\compiler\optimization\OptimizedAST.class
 project\vm\codegen\AssemblyCodeGenerator.class
