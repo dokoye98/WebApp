@@ -46,7 +46,6 @@ router.post('/compile', (req, res) => {
             const outputId = uuid.v4();
             const outputFilePath = path.join(outputDir, `${outputId}.txt`)
             fs.writeFileSync(outputFilePath, formattedOutput)
-
             let compiledIds = JSON.parse(fs.readFileSync(idsFilePath));
             compiledIds.unshift(outputId);
             if (compiledIds.length > 5) compiledIds = compiledIds.slice(0, 5)
